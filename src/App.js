@@ -1,11 +1,12 @@
 import React from 'react';
+import ReactRogue from './ReactRogue.js'
 
-function App() {
-  return (
-    <div className="App">
-      Hello World
-    </div>
-  );
-}
+const App = () => (
+
+  <div className="App">
+    <ReactRogue/>
+  </div>
+
+);
 
 export default App;
