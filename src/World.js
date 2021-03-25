@@ -17,6 +17,10 @@ class World {
     return this.entities[0];
   }
 
+  add(entity) {
+    this.entities.push(entity);
+  }
+
   isWall(x,y) {
     return(this.worldmap[x] === undefined ||
            this.worldmap[y] === undefined ||

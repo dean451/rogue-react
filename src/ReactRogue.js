@@ -1,7 +1,8 @@
 import React,{useRef,useEffect,useState} from 'react'
 import InputManager from './InputManager.js';
 import Player from './Player.js';
-import World from './World.js'
+import World from './World.js';
+import Spawner from './Spawner.js';
 
 const ReactRogue = ({width,height,tilesize}) => {
 const canvasRef = useRef()
@@ -22,6 +23,8 @@ useEffect(()=> {
   Object.assign(newWorld, world);
   newWorld.createCellularMap();
   newWorld.moveToSpace(world.player);
+  let spawner = new Spawner(newWorld);
+  spawner.spawnLoot(10);
   setWorld(newWorld);
 }, []);
 
