@@ -21,6 +21,10 @@ class World {
     this.entities.push(entity);
   }
 
+  remove(entity) {
+    this.entities = this.entities.filter(e => e !== entity)
+  }
+
   isWall(x,y) {
     return(this.worldmap[x] === undefined ||
            this.worldmap[y] === undefined ||

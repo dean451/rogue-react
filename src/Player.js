@@ -1,11 +1,17 @@
 import Entity from './Entity.js'
 
 class Player extends Entity {
+  inventory = [];
+
 
   attributes = {
     name: 'Player',
     ascii: '@',
     health: '100'
+  }
+
+  add(item) {
+    this.inventory.push(item);
   }
 
   move(dx,dy){

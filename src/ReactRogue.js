@@ -45,12 +45,17 @@ useEffect(()=> {
  world.draw(ctx);
 });
 return (
+  <>
   <canvas
    ref={canvasRef}
    width ={width * tilesize}
    height={height * tilesize}
    style={{border: '1px solid black'}}
   ></canvas>
+  <ul>
+    {world.player.inventory.map((item, index) => (<li key={index}>{item.attributes.name}</li>))}
+  </ul>
+  </>
  );
 };
 
