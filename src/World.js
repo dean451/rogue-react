@@ -17,8 +17,33 @@ class World {
     return this.entities[0];
   }
 
+  isWall(x,y) {
+    return(this.worldmap[x] === undefined ||
+           this.worldmap[y] === undefined ||
+           this.worldmap[x][y] ===1
+   );
+  }
+
+  moveToSpace(entity){
+    for (let x = entity.x; x < this.width; x++) {
+      for (let y = entity.y; y < this.height; y++) {
+        if(this.worldmap[x][y] === 0) {
+          entity.x = x;
+          entity.y = y;
+          return;
+        }
+      }
+    }
+  }
+
   movePlayer(dx,dy){
-    this.player.move(dx,dy);
+    let tempPlayer = this.player.copyPlayer();
+    tempPlayer.move(dx,dy);
+    if(this.isWall(tempPlayer.x, tempPlayer.y)){
+      console.log(`Way blocked at ${tempPlayer.x}:${tempPlayer.y}!`)
+    }else{
+      this.player.move(dx, dy);
+    }
   }
 
 
