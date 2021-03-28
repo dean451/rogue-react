@@ -7,6 +7,7 @@ class World {
     this.height=height;
     this.tilesize=tilesize;
     this.entities = [new Player(0,0,16)];
+    this.history = ['You enter the dungeon.', '---']
     this.worldmap = new Array(this.width);
     for (let x = 0; x<this.width;x++){
       this.worldmap[x] = new Array(this.height)
@@ -99,6 +100,10 @@ class World {
       this.tilesize,
       this.tilesize
     )
+  }
+
+  addToHistory(history) {
+    this.history.push(history);
   }
 
 }
